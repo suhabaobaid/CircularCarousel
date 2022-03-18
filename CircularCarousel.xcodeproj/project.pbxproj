@@ -13,6 +13,11 @@
 		1A0C9C6627E52D9E00A10D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0C9C6427E52D9E00A10D38 /* Main.storyboard */; };
 		1A0C9C6827E52D9F00A10D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A0C9C6727E52D9F00A10D38 /* Assets.xcassets */; };
 		1A0C9C6B27E52D9F00A10D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0C9C6927E52D9F00A10D38 /* LaunchScreen.storyboard */; };
+		1A0C9C7327E52DB700A10D38 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C7227E52DB700A10D38 /* CustomLayout.swift */; };
+		1A0C9C7727E530FF00A10D38 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C7627E530FF00A10D38 /* Images.swift */; };
+		1A0C9C7927E5315000A10D38 /* SignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C7827E5315000A10D38 /* SignCollectionViewCell.swift */; };
+		1A0C9C7B27E5335C00A10D38 /* Array+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C7A27E5335C00A10D38 /* Array+Shift.swift */; };
+		1A0C9C7D27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C7C27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		1A0C9C6727E52D9F00A10D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A0C9C6A27E52D9F00A10D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A0C9C6C27E52D9F00A10D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A0C9C7227E52DB700A10D38 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
+		1A0C9C7627E530FF00A10D38 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		1A0C9C7827E5315000A10D38 /* SignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A0C9C7A27E5335C00A10D38 /* Array+Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shift.swift"; sourceTree = "<group>"; };
+		1A0C9C7C27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayoutAttributes+Copy.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +67,13 @@
 			isa = PBXGroup;
 			children = (
 				1A0C9C5E27E52D9E00A10D38 /* AppDelegate.swift */,
+				1A0C9C7227E52DB700A10D38 /* CustomLayout.swift */,
+				1A0C9C7A27E5335C00A10D38 /* Array+Shift.swift */,
+				1A0C9C7C27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift */,
 				1A0C9C6027E52D9E00A10D38 /* SceneDelegate.swift */,
 				1A0C9C6227E52D9E00A10D38 /* ViewController.swift */,
+				1A0C9C7827E5315000A10D38 /* SignCollectionViewCell.swift */,
+				1A0C9C7627E530FF00A10D38 /* Images.swift */,
 				1A0C9C6427E52D9E00A10D38 /* Main.storyboard */,
 				1A0C9C6727E52D9F00A10D38 /* Assets.xcassets */,
 				1A0C9C6927E52D9F00A10D38 /* LaunchScreen.storyboard */,
@@ -140,6 +155,11 @@
 			files = (
 				1A0C9C6327E52D9E00A10D38 /* ViewController.swift in Sources */,
 				1A0C9C5F27E52D9E00A10D38 /* AppDelegate.swift in Sources */,
+				1A0C9C7B27E5335C00A10D38 /* Array+Shift.swift in Sources */,
+				1A0C9C7727E530FF00A10D38 /* Images.swift in Sources */,
+				1A0C9C7927E5315000A10D38 /* SignCollectionViewCell.swift in Sources */,
+				1A0C9C7327E52DB700A10D38 /* CustomLayout.swift in Sources */,
+				1A0C9C7D27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift in Sources */,
 				1A0C9C6127E52D9E00A10D38 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

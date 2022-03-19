@@ -7,9 +7,21 @@
 
 import UIKit
 
+protocol SignCollectionViewCellDelegate: AnyObject {
+    func didSelectHoroscope(_ horoscope: Horoscope)
+}
+
 class SignCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
+    lazy var selectedView: UIView = {
+        var view = UIView()
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var signImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,8 +51,11 @@ class SignCollectionViewCell: UICollectionViewCell {
     var isHoroscopeSelected: Bool = false {
         didSet {
             isHoroscopeSelected ? setSelected() : setDeselected()
+            
         }
     }
+    var horoscopeItem: Horoscope?
+    weak var delegate: SignCollectionViewCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,12 +69,14 @@ class SignCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         selectButton.isHidden = true
+        selectedView.isHidden = true
     }
     
     private func configure() {
         backgroundColor = .clear
         contentView.clipsToBounds = false
         
+        contentView.addSubview(selectedView)
         contentView.addSubview(signImageView)
         contentView.addSubview(signLabel)
         contentView.addSubview(dateLabel)
@@ -67,12 +84,17 @@ class SignCollectionViewCell: UICollectionViewCell {
      
         
         NSLayoutConstraint.activate([
-            signImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            selectedView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -15),
+            selectedView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            selectedView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            selectedView.heightAnchor.constraint(equalTo: selectedView.widthAnchor),
+            
+            signImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             signImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            signImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
+            signImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
             signImageView.heightAnchor.constraint(equalTo: signImageView.widthAnchor),
             
-            signLabel.topAnchor.constraint(equalTo: signImageView.bottomAnchor, constant: 20),
+            signLabel.topAnchor.constraint(equalTo: signImageView.bottomAnchor, constant: 10),
             signLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             signLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
@@ -83,7 +105,7 @@ class SignCollectionViewCell: UICollectionViewCell {
             selectButton.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5),
             selectButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             selectButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            selectButton.heightAnchor.constraint(equalToConstant: 28)
+            selectButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
         selectButton.addTarget(self, action: #selector(didSelectHoroscope), for: .touchUpInside)
@@ -91,23 +113,35 @@ class SignCollectionViewCell: UICollectionViewCell {
     }
     
     func set(with horoscope: Horoscope) {
+        self.horoscopeItem = horoscope
+        
         signImageView.image = horoscope.image
         signLabel.text = horoscope.sign
         dateLabel.text = horoscope.dates.uppercased()
-        
-        
     }
     
     func setSelected() {
-        selectButton.isHidden = false
+        animateTransitions(with: false)
     }
     
     func setDeselected() {
-        selectButton.isHidden = false
+        animateTransitions(with: true)
+    }
+    
+    func animateTransitions(with newValue: Bool) {
+        UIView.transition(with: self, duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.selectButton.isHidden = newValue
+            self.selectedView.isHidden = newValue
+        })
     }
     
     @objc func didSelectHoroscope() {
-        print("Yes")
+        guard let horoscopeItem = horoscopeItem else {
+            return
+        }
+        delegate?.didSelectHoroscope(horoscopeItem)
     }
     
     override func layoutSubviews() {
@@ -118,6 +152,8 @@ class SignCollectionViewCell: UICollectionViewCell {
             UIColor(red: 0.742, green: 0.148, blue: 0, alpha: 1)
             
         ], locations: [0, 0.35, 1])
+        
+        selectedView.layer.cornerRadius = selectedView.bounds.size.width / 2
     }
     
     

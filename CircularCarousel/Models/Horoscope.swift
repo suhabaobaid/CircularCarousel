@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Horoscope {
+struct Horoscope: Equatable {
     var id: Int
     var image: UIImage
     var sign: String

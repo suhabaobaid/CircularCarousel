@@ -12,8 +12,8 @@ class CircularLayout: UICollectionViewLayout {
 
     // MARK: Private properties
     private var itemCount = 0
-    private let itemSize = CGSize(width: UIScreen.main.bounds.width - 160, height: UIScreen.main.bounds.width - 160)
-    private let itemXSpacing: CGFloat = 10
+    private let itemSize = CGSize(width: UIScreen.main.bounds.width - 170, height: UIScreen.main.bounds.width - 100)
+    private let itemXSpacing: CGFloat = 0
     private var itemAndSpacingWidth: CGFloat {
         return itemSize.width + itemXSpacing
     }

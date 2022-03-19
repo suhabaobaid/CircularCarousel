@@ -23,6 +23,7 @@
 		1A0C9C8527E6357800A10D38 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C8427E6357800A10D38 /* UIFont+Ext.swift */; };
 		1A0C9C8727E637E400A10D38 /* FootNoteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */; };
 		1A0C9C8927E63AE000A10D38 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C8827E63AE000A10D38 /* UIView+Ext.swift */; };
+		1A0C9C9527E6668200A10D38 /* HeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C9427E6668200A10D38 /* HeadlineLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1A0C9C8427E6357800A10D38 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootNoteLabel.swift; sourceTree = "<group>"; };
 		1A0C9C8827E63AE000A10D38 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		1A0C9C9427E6668200A10D38 /* HeadlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,25 +78,106 @@
 		1A0C9C5D27E52D9E00A10D38 /* CircularCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				1A0C9C5E27E52D9E00A10D38 /* AppDelegate.swift */,
-				1A0C9C7227E52DB700A10D38 /* CircularLayout.swift */,
-				1A0C9C7A27E5335C00A10D38 /* Array+Shift.swift */,
-				1A0C9C7C27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift */,
-				1A0C9C6027E52D9E00A10D38 /* SceneDelegate.swift */,
-				1A0C9C6227E52D9E00A10D38 /* ViewController.swift */,
-				1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */,
-				1A0C9C7827E5315000A10D38 /* SignCollectionViewCell.swift */,
-				1A0C9C8827E63AE000A10D38 /* UIView+Ext.swift */,
-				1A0C9C8227E6354C00A10D38 /* TitleLabel.swift */,
-				1A0C9C8427E6357800A10D38 /* UIFont+Ext.swift */,
-				1A0C9C7627E530FF00A10D38 /* Images.swift */,
-				1A0C9C6427E52D9E00A10D38 /* Main.storyboard */,
+				1A0C9C9027E6656A00A10D38 /* AppDelegate */,
+				1A0C9C8F27E6655A00A10D38 /* CollectionViewLayout */,
+				1A0C9C8E27E6654500A10D38 /* ViewControllers */,
+				1A0C9C8A27E6650900A10D38 /* Extensions */,
+				1A0C9C8B27E6652500A10D38 /* CustomViews */,
+				1A0C9C9327E6659200A10D38 /* Models */,
+				1A0C9C8D27E6653C00A10D38 /* Constants */,
+				1A0C9C9227E6658A00A10D38 /* StoryBoards */,
 				1A0C9C6727E52D9F00A10D38 /* Assets.xcassets */,
-				1A0C9C6927E52D9F00A10D38 /* LaunchScreen.storyboard */,
 				1A0C9C6C27E52D9F00A10D38 /* Info.plist */,
-				1A0C9C8027E6321600A10D38 /* Horoscope.swift */,
 			);
 			path = CircularCarousel;
+			sourceTree = "<group>";
+		};
+		1A0C9C8A27E6650900A10D38 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C7A27E5335C00A10D38 /* Array+Shift.swift */,
+				1A0C9C7C27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift */,
+				1A0C9C8827E63AE000A10D38 /* UIView+Ext.swift */,
+				1A0C9C8427E6357800A10D38 /* UIFont+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A0C9C8B27E6652500A10D38 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C8C27E6653600A10D38 /* Labels */,
+				1A0C9C9127E6657A00A10D38 /* CollectionViewCells */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1A0C9C8C27E6653600A10D38 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */,
+				1A0C9C8227E6354C00A10D38 /* TitleLabel.swift */,
+				1A0C9C9427E6668200A10D38 /* HeadlineLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		1A0C9C8D27E6653C00A10D38 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C7627E530FF00A10D38 /* Images.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1A0C9C8E27E6654500A10D38 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C6227E52D9E00A10D38 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1A0C9C8F27E6655A00A10D38 /* CollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C7227E52DB700A10D38 /* CircularLayout.swift */,
+			);
+			path = CollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		1A0C9C9027E6656A00A10D38 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C5E27E52D9E00A10D38 /* AppDelegate.swift */,
+				1A0C9C6027E52D9E00A10D38 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1A0C9C9127E6657A00A10D38 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C7827E5315000A10D38 /* SignCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		1A0C9C9227E6658A00A10D38 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C6427E52D9E00A10D38 /* Main.storyboard */,
+				1A0C9C6927E52D9F00A10D38 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		1A0C9C9327E6659200A10D38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C9C8027E6321600A10D38 /* Horoscope.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +259,7 @@
 				1A0C9C8327E6354C00A10D38 /* TitleLabel.swift in Sources */,
 				1A0C9C7727E530FF00A10D38 /* Images.swift in Sources */,
 				1A0C9C7927E5315000A10D38 /* SignCollectionViewCell.swift in Sources */,
+				1A0C9C9527E6668200A10D38 /* HeadlineLabel.swift in Sources */,
 				1A0C9C7327E52DB700A10D38 /* CircularLayout.swift in Sources */,
 				1A0C9C8927E63AE000A10D38 /* UIView+Ext.swift in Sources */,
 				1A0C9C7D27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift in Sources */,

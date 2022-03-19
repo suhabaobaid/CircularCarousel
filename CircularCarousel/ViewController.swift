@@ -66,4 +66,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.signImageView.image = horoscopes[correctIndex]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
 }

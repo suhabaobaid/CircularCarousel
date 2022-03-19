@@ -13,7 +13,7 @@ class LoopLayout: UICollectionViewLayout {
     // MARK: Private properties
     private var itemCount = 0
     private let itemSize = CGSize(width: UIScreen.main.bounds.width - 158, height: UIScreen.main.bounds.width - 158)
-    private let itemXSpacing: CGFloat = 20.0
+    private let itemXSpacing: CGFloat = 20 
     private var itemAndSpacingWidth: CGFloat {
         return itemSize.width + itemXSpacing
     }

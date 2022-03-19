@@ -42,13 +42,21 @@ class ViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureBackground()
         configureHeadline()
         configureCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        backBarButtonItem.tintColor = .white
+        navigationItem.backBarButtonItem = backBarButtonItem
+    }
+    
     // MARK: - Configure
     private func configureBackground() {
+        view.backgroundColor = .white
         view.addSubview(backgroundView)
         
         NSLayoutConstraint.activate([
@@ -145,10 +153,11 @@ extension ViewController {
 
 extension ViewController: SignCollectionViewCellDelegate {
     func didSelectHoroscope(_ horoscope: Horoscope) {
-        let detailVC = HoroscopeDetailViewController(for: horoscope)
-        detailVC.modalPresentationStyle = .overCurrentContext
-        detailVC.modalTransitionStyle = .crossDissolve
-        navigationController?.present(detailVC, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let detailVC = HoroscopeDetailViewController(for: horoscope)
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
     }
 
 }

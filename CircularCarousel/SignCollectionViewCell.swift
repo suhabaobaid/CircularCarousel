@@ -52,7 +52,6 @@ class SignCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(dateLabel)
         contentView.addSubview(selectButton)
      
-
         
         NSLayoutConstraint.activate([
             signImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -73,6 +72,9 @@ class SignCollectionViewCell: UICollectionViewCell {
             selectButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             selectButton.heightAnchor.constraint(equalToConstant: 28)
         ])
+        
+        selectButton.addTarget(self, action: #selector(didSelectHoroscope), for: .touchUpInside)
+
     }
     
     func set(with horoscope: Horoscope) {
@@ -84,7 +86,7 @@ class SignCollectionViewCell: UICollectionViewCell {
     }
     
     func setSelected() {
-        selectButton.addTarget(self, action: #selector(didSelectHoroscope), for: .touchUpInside)
+        
         selectButton.isHidden = false
         selectButton.applyGradient(colours: [
             UIColor(red: 1, green: 0.779, blue: 0.349, alpha: 1),
@@ -92,6 +94,10 @@ class SignCollectionViewCell: UICollectionViewCell {
             UIColor(red: 0.742, green: 0.148, blue: 0, alpha: 1)
             
         ], locations: [0, 0.35, 1])
+    }
+    
+    func setDeselected() {
+        selectButton.isHidden = false
     }
     
     @objc func didSelectHoroscope() {

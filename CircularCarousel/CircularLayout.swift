@@ -13,7 +13,7 @@ class CircularLayout: UICollectionViewLayout {
     // MARK: Private properties
     private var itemCount = 0
     private let itemSize = CGSize(width: UIScreen.main.bounds.width - 160, height: UIScreen.main.bounds.width - 160)
-    private let itemXSpacing: CGFloat = 0
+    private let itemXSpacing: CGFloat = 10
     private var itemAndSpacingWidth: CGFloat {
         return itemSize.width + itemXSpacing
     }
@@ -190,19 +190,19 @@ extension CircularLayout {
         
         let distanceFromCenter = abs(visibleRect.midX - attribute.center.x)
         
-        var transform: CATransform3D = CATransform3DIdentity
+        var transform: CGAffineTransform = .identity
         
         // Transform over the arc
         if distanceFromCenter < activeArcDistance {
             let yTransform = arcRadius - sqrt((arcRadius * arcRadius) - (distanceFromCenter * distanceFromCenter))
-            transform = CATransform3DMakeTranslation(0, -yTransform, 0)
+            transform = CGAffineTransform(translationX: 0, y: -yTransform)
         }
         
         // scale the cell
         let newScale = (1 - (distanceFromCenter * 0.001))
-        transform = CATransform3DScale(transform, newScale, newScale, 0)
+        transform = transform.concatenating(CGAffineTransform(scaleX: newScale, y: newScale))
         
-        attribute.transform3D = transform
+        attribute.transform = transform
         attribute.alpha = newScale
         
     }

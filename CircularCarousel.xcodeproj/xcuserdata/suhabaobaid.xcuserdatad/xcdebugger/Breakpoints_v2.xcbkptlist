@@ -8,14 +8,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4B342730-745C-4EB5-AF88-09A0C732AA60"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CircularCarousel/SignCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "didSelectHoroscope()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "CircularCarousel/SignCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "setSelected()"
             landmarkType = "7">
          </BreakpointContent>
@@ -40,15 +40,31 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "55E6EB91-4300-4915-BB4F-6E8B989E0D10"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CircularCarousel/SignCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "setSelected()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A09014E7-CABD-499C-A1EE-B434EF29C874"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularCarousel/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

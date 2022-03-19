@@ -31,9 +31,9 @@ class SignCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             signImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            signImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            signImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            signImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            signImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            signImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
+            signImageView.heightAnchor.constraint(equalTo: signImageView.widthAnchor)
         ])
     }
 }

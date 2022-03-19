@@ -8,12 +8,12 @@
 
 import UIKit
 
-class LoopLayout: UICollectionViewLayout {
+class CircularLayout: UICollectionViewLayout {
 
     // MARK: Private properties
     private var itemCount = 0
-    private let itemSize = CGSize(width: UIScreen.main.bounds.width - 158, height: UIScreen.main.bounds.width - 158)
-    private let itemXSpacing: CGFloat = 20
+    private let itemSize = CGSize(width: UIScreen.main.bounds.width - 120, height: UIScreen.main.bounds.width - 120)
+    private let itemXSpacing: CGFloat = 0
     private var itemAndSpacingWidth: CGFloat {
         return itemSize.width + itemXSpacing
     }
@@ -41,7 +41,7 @@ class LoopLayout: UICollectionViewLayout {
 }
 
 // MARK: UICollectionViewLayout overrides
-extension LoopLayout {
+extension CircularLayout {
     override var collectionViewContentSize: CGSize {
         guard let cv = collectionView else { return .zero }
 
@@ -156,7 +156,7 @@ extension LoopLayout {
 }
 
 // MARK: Private methods
-extension LoopLayout {
+extension CircularLayout {
     private func initialContentOffset() -> CGPoint? {
         guard let cv = collectionView, itemCount > 0 else { return nil }
 
@@ -199,7 +199,7 @@ extension LoopLayout {
         }
         
         // scale the cell
-        let newScale = max(1 - (distanceFromCenter * 0.001), 0)
+        let newScale = (1 - (distanceFromCenter * 0.001))
         transform = CATransform3DScale(transform, newScale, newScale, 0)
         
         attribute.transform3D = transform

@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     ]
     
     private func configureCollectionView() {
-        horoscopeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: LoopLayout())
+        horoscopeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: CircularLayout())
         horoscopeCollectionView.delegate = self
         horoscopeCollectionView.dataSource = self
         horoscopeCollectionView.backgroundColor = .red
@@ -46,10 +46,8 @@ class ViewController: UIViewController {
             horoscopeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             horoscopeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             horoscopeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            horoscopeCollectionView.heightAnchor.constraint(equalTo: horoscopeCollectionView.widthAnchor, constant: -68)
+            horoscopeCollectionView.heightAnchor.constraint(equalTo: horoscopeCollectionView.widthAnchor, constant: 0)
         ])
-        
-        horoscopeCollectionView.contentInset = UIEdgeInsets(top: 0, left: 34, bottom: 0, right: 34)
         
     }
 }

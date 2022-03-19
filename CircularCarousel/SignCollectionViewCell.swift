@@ -9,6 +9,7 @@ import UIKit
 
 class SignCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - UI
     lazy var signImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +35,13 @@ class SignCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    // MARK: - Properties
+    var isHoroscopeSelected: Bool = false {
+        didSet {
+            isHoroscopeSelected ? setSelected() : setDeselected()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -41,6 +49,11 @@ class SignCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        selectButton.isHidden = true
     }
     
     private func configure() {
@@ -74,7 +87,7 @@ class SignCollectionViewCell: UICollectionViewCell {
         ])
         
         selectButton.addTarget(self, action: #selector(didSelectHoroscope), for: .touchUpInside)
-
+        
     }
     
     func set(with horoscope: Horoscope) {
@@ -86,14 +99,7 @@ class SignCollectionViewCell: UICollectionViewCell {
     }
     
     func setSelected() {
-        
         selectButton.isHidden = false
-        selectButton.applyGradient(colours: [
-            UIColor(red: 1, green: 0.779, blue: 0.349, alpha: 1),
-            UIColor(red: 0.969, green: 0.384, blue: 0.239, alpha: 1),
-            UIColor(red: 0.742, green: 0.148, blue: 0, alpha: 1)
-            
-        ], locations: [0, 0.35, 1])
     }
     
     func setDeselected() {
@@ -106,7 +112,12 @@ class SignCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        selectButton.applyGradient(colours: [
+            UIColor(red: 1, green: 0.779, blue: 0.349, alpha: 1),
+            UIColor(red: 0.969, green: 0.384, blue: 0.239, alpha: 1),
+            UIColor(red: 0.742, green: 0.148, blue: 0, alpha: 1)
             
+        ], locations: [0, 0.35, 1])
     }
     
     

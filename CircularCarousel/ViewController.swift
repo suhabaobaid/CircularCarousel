@@ -88,7 +88,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("here")
         let selectedCell = collectionView.cellForItem(at: indexPath) as! SignCollectionViewCell
-        selectedCell.setSelected()
+        selectedCell.isHoroscopeSelected = true
     }
 
 }

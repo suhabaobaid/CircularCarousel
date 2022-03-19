@@ -192,10 +192,15 @@ extension LoopLayout {
         
         var transform: CATransform3D = CATransform3DIdentity
         
+        // Transform over the arc
         if distanceFromCenter < activeArcDistance {
             let yTransform = arcRadius - sqrt((arcRadius * arcRadius) - (distanceFromCenter * distanceFromCenter))
             transform = CATransform3DMakeTranslation(0, -yTransform, 0)
         }
+        
+        // scale the cell
+        let newScale = max(1 - (distanceFromCenter * 0.001), 0)
+        transform = CATransform3DScale(transform, newScale, newScale, 0)
         
         attribute.transform3D = transform
         

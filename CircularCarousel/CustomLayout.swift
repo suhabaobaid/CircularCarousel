@@ -2,9 +2,9 @@
 //  LoopLayout.swift
 //  LoopLayout
 //
-//  Created by Greg Spiers on 28/03/2019.
-//  Copyright © 2019 Greg Spiers. All rights reserved.
+//  Created by Suha Baobaid 19/03/2022
 //
+
 
 import UIKit
 
@@ -13,10 +13,11 @@ class LoopLayout: UICollectionViewLayout {
     // MARK: Private properties
     private var itemCount = 0
     private let itemSize = CGSize(width: UIScreen.main.bounds.width - 158, height: UIScreen.main.bounds.width - 158)
-    private let itemXSpacing: CGFloat = 20 
+    private let itemXSpacing: CGFloat = 20
     private var itemAndSpacingWidth: CGFloat {
         return itemSize.width + itemXSpacing
     }
+    private var arcRadius: CGFloat = 400 // Radius of the circle that the cells arc over
 
     private var contentWidth: CGFloat {
         let totalItemAndSpacingWidth = (CGFloat(itemCount) * itemAndSpacingWidth)
@@ -103,6 +104,8 @@ extension LoopLayout {
 
             attributes.center = CGPoint(x: currentX, y: attributes.center.y)
             currentX += itemAndSpacingWidth
+            
+            adjustAttribute(attributes)
         }
     }
 
@@ -120,6 +123,23 @@ extension LoopLayout {
 
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
+    }
+    
+    override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
+        let context = super.invalidationContext(forBoundsChange: newBounds)
+        guard let cv = collectionView else { return context }
+
+        // If we are scrolling off the leading/trailing offsets we need to adjust contentOffset so we can 'wrap' around.
+        // This will be seamless for the user as the current momentum is maintained.
+        if cv.contentOffset.x >= trailingOffsetX {
+            let offset = CGPoint(x: -contentWidth, y: 0)
+            context.contentOffsetAdjustment = offset
+        } else if cv.contentOffset.x <= leadingOffsetX {
+            let offset = CGPoint(x: contentWidth, y: 0)
+            context.contentOffsetAdjustment = offset
+        }
+
+        return context
     }
 
     override func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
@@ -158,5 +178,26 @@ extension LoopLayout {
         hasSetInitialContentOffsetOnce = true
 
         cv.setContentOffset(initialContentOffset, animated: false)
+    }
+    
+    private func adjustAttribute(_ attribute: UICollectionViewLayoutAttributes) {
+        guard let cv = collectionView else { return }
+        
+        let visibleRect = CGRect(origin: cv.contentOffset, size: cv.bounds.size)
+        
+        // if the cell is on the screen it needs to be translated to the arc
+        let activeArcDistance = (visibleRect.width + itemSize.width) / 2
+        
+        let distanceFromCenter = abs(visibleRect.midX - attribute.center.x)
+        
+        var transform: CATransform3D = CATransform3DIdentity
+        
+        if distanceFromCenter < activeArcDistance {
+            let yTransform = arcRadius - sqrt((arcRadius * arcRadius) - (distanceFromCenter * distanceFromCenter))
+            transform = CATransform3DMakeTranslation(0, -yTransform, 0)
+        }
+        
+        attribute.transform3D = transform
+        
     }
 }

@@ -8,11 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     // MARK: - UI
     var horoscopeCollectionView: UICollectionView!
-    var headlineLabel: HeadlineLabel = {
-        var label = HeadlineLabel(headingText: "Choose your zodiac sign.\nWhat do your stars say today?", textColor: .white, textAlignment: .left)
+    var headlineLabel: TitleLabel = {
+        var label = TitleLabel(headingText: "Choose your zodiac sign.\nWhat do your stars say today?", textColor: .white, textAlignment: .left)
         label.numberOfLines = 0
         return label
     }()
@@ -61,11 +61,11 @@ class ViewController: UIViewController {
     
     private func configureHeadline() {
         view.addSubview(headlineLabel)
-        let topPadding: CGFloat = view.bounds.size.height / 7
+        let topPadding: CGFloat = view.bounds.size.height / 8
         
         NSLayoutConstraint.activate([
             headlineLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topPadding),
-            headlineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            headlineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             headlineLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             headlineLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
             horoscopeCollectionView.topAnchor.constraint(equalTo: headlineLabel.bottomAnchor, constant: 30),
             horoscopeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             horoscopeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            horoscopeCollectionView.heightAnchor.constraint(equalTo: horoscopeCollectionView.widthAnchor, constant: 0)
+            horoscopeCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
     }
@@ -123,12 +123,32 @@ extension ViewController {
         deselectCell.isHoroscopeSelected = false
         self.currentlySelectedHoroscopeIndexPath = nil
     }
-
+    
+    // Snapping
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        var indexOfCellWithLargestWidth = 0
+        var largestWidth : CGFloat = 1
+        
+        for cell in self.horoscopeCollectionView.visibleCells {
+            if cell.frame.size.width > largestWidth {
+                largestWidth = cell.frame.size.width
+                if let indexPath = self.horoscopeCollectionView.indexPath(for: cell) {
+                    indexOfCellWithLargestWidth = indexPath.item
+                }
+            }
+        }
+        
+        horoscopeCollectionView.scrollToItem(at: IndexPath(item: indexOfCellWithLargestWidth, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
 }
 
 extension ViewController: SignCollectionViewCellDelegate {
     func didSelectHoroscope(_ horoscope: Horoscope) {
-        print(horoscope)
+        let detailVC = HoroscopeDetailViewController(for: horoscope)
+        detailVC.modalPresentationStyle = .overCurrentContext
+        detailVC.modalTransitionStyle = .crossDissolve
+        navigationController?.present(detailVC, animated: true, completion: nil)
     }
-    
+
 }

@@ -1,5 +1,5 @@
 //
-//  HeadlineLabel.swift
+//  BodyLabel.swift
 //  CircularCarousel
 //
 //  Created by Suha Baobaid on 3/19/22.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class HeadlineLabel: UILabel {
-    
+class BodyLabel: UILabel {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -27,9 +27,9 @@ class HeadlineLabel: UILabel {
     
     private func configure() {
         textColor = .white
-        font = UIFont.systemFont(ofSize: 38, weight: .semibold)
+        font = UIFont.preferredFont(forTextStyle: .body)
         textAlignment = .left
-        
+        numberOfLines = 0
         translatesAutoresizingMaskIntoConstraints = false
     }
 

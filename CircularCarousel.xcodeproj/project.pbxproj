@@ -23,7 +23,10 @@
 		1A0C9C8527E6357800A10D38 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C8427E6357800A10D38 /* UIFont+Ext.swift */; };
 		1A0C9C8727E637E400A10D38 /* FootNoteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */; };
 		1A0C9C8927E63AE000A10D38 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C8827E63AE000A10D38 /* UIView+Ext.swift */; };
-		1A0C9C9527E6668200A10D38 /* HeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C9427E6668200A10D38 /* HeadlineLabel.swift */; };
+		1A0C9C9727E66AA200A10D38 /* HoroscopeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C9627E66AA200A10D38 /* HoroscopeDetailViewController.swift */; };
+		1A0C9C9927E66EAB00A10D38 /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C9827E66EAB00A10D38 /* BodyLabel.swift */; };
+		1A0C9C9B27E66F3C00A10D38 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C9A27E66F3C00A10D38 /* Strings.swift */; };
+		1A0C9C9D27E6749C00A10D38 /* SubTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C9C9C27E6749C00A10D38 /* SubTitleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +48,10 @@
 		1A0C9C8427E6357800A10D38 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootNoteLabel.swift; sourceTree = "<group>"; };
 		1A0C9C8827E63AE000A10D38 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		1A0C9C9427E6668200A10D38 /* HeadlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineLabel.swift; sourceTree = "<group>"; };
+		1A0C9C9627E66AA200A10D38 /* HoroscopeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeDetailViewController.swift; sourceTree = "<group>"; };
+		1A0C9C9827E66EAB00A10D38 /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
+		1A0C9C9A27E66F3C00A10D38 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		1A0C9C9C27E6749C00A10D38 /* SubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +123,8 @@
 			children = (
 				1A0C9C8627E637E400A10D38 /* FootNoteLabel.swift */,
 				1A0C9C8227E6354C00A10D38 /* TitleLabel.swift */,
-				1A0C9C9427E6668200A10D38 /* HeadlineLabel.swift */,
+				1A0C9C9C27E6749C00A10D38 /* SubTitleLabel.swift */,
+				1A0C9C9827E66EAB00A10D38 /* BodyLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0C9C7627E530FF00A10D38 /* Images.swift */,
+				1A0C9C9A27E66F3C00A10D38 /* Strings.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0C9C6227E52D9E00A10D38 /* ViewController.swift */,
+				1A0C9C9627E66AA200A10D38 /* HoroscopeDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -253,16 +262,19 @@
 			files = (
 				1A0C9C6327E52D9E00A10D38 /* ViewController.swift in Sources */,
 				1A0C9C5F27E52D9E00A10D38 /* AppDelegate.swift in Sources */,
+				1A0C9C9B27E66F3C00A10D38 /* Strings.swift in Sources */,
 				1A0C9C8527E6357800A10D38 /* UIFont+Ext.swift in Sources */,
 				1A0C9C7B27E5335C00A10D38 /* Array+Shift.swift in Sources */,
 				1A0C9C8727E637E400A10D38 /* FootNoteLabel.swift in Sources */,
 				1A0C9C8327E6354C00A10D38 /* TitleLabel.swift in Sources */,
+				1A0C9C9727E66AA200A10D38 /* HoroscopeDetailViewController.swift in Sources */,
+				1A0C9C9D27E6749C00A10D38 /* SubTitleLabel.swift in Sources */,
 				1A0C9C7727E530FF00A10D38 /* Images.swift in Sources */,
 				1A0C9C7927E5315000A10D38 /* SignCollectionViewCell.swift in Sources */,
-				1A0C9C9527E6668200A10D38 /* HeadlineLabel.swift in Sources */,
 				1A0C9C7327E52DB700A10D38 /* CircularLayout.swift in Sources */,
 				1A0C9C8927E63AE000A10D38 /* UIView+Ext.swift in Sources */,
 				1A0C9C7D27E5337E00A10D38 /* UICollectionViewLayoutAttributes+Copy.swift in Sources */,
+				1A0C9C9927E66EAB00A10D38 /* BodyLabel.swift in Sources */,
 				1A0C9C6127E52D9E00A10D38 /* SceneDelegate.swift in Sources */,
 				1A0C9C8127E6321600A10D38 /* Horoscope.swift in Sources */,
 			);

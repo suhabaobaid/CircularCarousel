@@ -22,5 +22,5 @@ enum Images {
     static let scorpio = UIImage(named: "starsign_scorpio")!
     static let taurus = UIImage(named: "starsign_taurus")!
     static let virgo = UIImage(named: "starsign_virgo")!
-    
+    static let virgoHeader = UIImage(named: "Virgo-Header")!
 }
